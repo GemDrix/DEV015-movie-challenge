@@ -1,4 +1,5 @@
 export const renderItems = (dataset) => {
+
     const tarjetas = dataset.map(pelicula => {
       const tarjeta = document.createElement("ul");  // Crea un elemento "ul" para cada campeona
       tarjeta.setAttribute("itemscope", "");
@@ -8,7 +9,8 @@ export const renderItems = (dataset) => {
 
       const imgTarjeta = document.createElement("li"); // Crea un elemento "li" que contiene la imagen
       const imgElemento = document.createElement("img"); // Crea el elemento "img" y se asignan sus atributos
-      imgElemento.src = pelicula.poster_path;           // Establece la fuente de la imagen
+      const baseURL = "https://image.tmdb.org/t/p/original";
+      imgElemento.src = baseURL + pelicula.poster_path ;           // Establece la fuente de la imagen
       imgElemento.alt = pelicula.original_title;               // Texto alternativo si no carga la imagen
       imgElemento.classList.add("imagen");           // Asigna una clase "imagen" para utilizarlo con CSS
       imgElemento.setAttribute("itemprop", "imagen")
@@ -18,7 +20,7 @@ export const renderItems = (dataset) => {
       const cartelera = document.createElement("li");
       tarjeta.classList.add("tarjeta");                // Crea un 'li' que contendrá la información adicional
       const carteleraVista = [
-        { prop: "original_title", text: pelicula.name },
+        { prop: "title", text: pelicula.title },
         { prop: "release_date", text: pelicula.release_date },
         
         ];
