@@ -4,7 +4,7 @@
   box-sizing: content-box;
 }
 body {
-  background-color: #000000;
+  background-color: #fbf4f4;
   text-align: center;
   padding-top: 50px;
 }
@@ -52,7 +52,6 @@ p{
   align-items: center;
   float: center;
   width: 50%;                       
-
   border-radius: 10px;
   margin:auto;
 }

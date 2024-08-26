@@ -14,11 +14,38 @@
     <p>
         “En esta vasta colección, cada película es una gema rara en el universo cinematográfico. Aquí, cada
         historia es un tesoro, y cada escena, un fragmento invaluable del cosmos Marvel.”
-        <img class="img" src="https://snapjson.untapped.gg/art/render/framebreak/common/512/TheCollector_05.webp" alt="">
+        <img class="img" src="https://snapjson.untapped.gg/art/render/framebreak/common/512/TheCollector_05.webp"
+            alt="">
     </p>
-   
 
-    
+    <div class="filter">
+        <label for="generos">Genero Peliculas</label>
+        <select data-testid="select-filter" class="filterSelect" id="generos">
+            <option value="Default">Encuentra--</option>
+            <option value="Acción">Acción</option>
+            <option value="Comedia">Comedia</option>
+            <option value="Ciencia ficción">Ciencia Ficción</option>
+            <option value="Crimen">Crimen</option>
+            <option value="Suspense">Suspenso</option>
+            <option value="Animación">Animación</option>
+            <option value="Familia">Familia</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Terror">Terror</option>
+            <option value="Drama">Drama</option>
+            <option value="Bélica">Bélico</option>
+            <option value="Fantasía">Fantasía</option>
+        </select>
+
+        <label for="añoEstreno">Año de Estreno</label>
+        <select data-testid="select-sort" name="name" class=" filterOrden" id="añoEstreno">
+            <option value="Default">Encuentra --</option>
+            <option value="asc">2016-2024</option>
+            <option value="desc">2024-2016</option>
+        </select>
+
+        <button data-testid="button-clear" id="reset-button">Limpiar</button>
+
+    </div>
     <div id="cartelera"></div>
 
 
