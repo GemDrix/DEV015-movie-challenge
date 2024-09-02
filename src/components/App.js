@@ -21,53 +21,10 @@ export const sortData = (data, sortBy, sortOrder) => {
     if (a[sortBy] > b[sortBy]) {
       return sortOrder === 'asc' ? 1 : -1;
     } else if (a[sortBy] < b[sortBy]) {
-      return sortOrder === '' ? -1 : 1;
+      return sortOrder === 'asc' ? -1 : 1;
     } else {
       return 0;
     }
   };
   return data.slice().sort(comparator); // Ordenar usando el comparador
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export const sortData = (data, sortBy, sortOrder) => {
-//   const dataOrdenada = data
-//   if (sortOrder === "asc") {
-//     return dataOrdenada.sort((a, b) => {
-//       if (a[sortBy] > b[sortBy]) {
-//         return 1;
-//       } else if (a[sortBy] < b[sortBy]) {
-//         return -1;
-//       } else {
-//         return 0;
-//       }
-//     });
-//   } else if (sortOrder === "desc") {
-//     return dataOrdenada.sort((a, b) => {
-//       if (a[sortBy] > b[sortBy]) {
-//         return -1;
-//       } else if (a[sortBy] < b[sortBy]) {
-//         return 1;
-//       } else {
-//         return 0;
-//       }
-//     });
-//   } else {
-
-//     return dataOrdenada;
-//   }
-// };
