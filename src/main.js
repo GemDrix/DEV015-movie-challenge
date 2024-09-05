@@ -1,9 +1,32 @@
-import dataset from '../data/dataset.js';
-import { filterData, renderItems, sortData } from './components/App.js';
+//import dataset from '../data/dataset.js';
+import { filterData, sortData } from './components/App.js';
 
-const tarjeta = renderItems(dataset)
+//const tarjeta = renderItems(dataset)
 
-document.getElementById("cartelera").innerHTML = tarjeta;
+//document.getElementById("cartelera").innerHTML = tarjeta;
+
+
+const cargarPeliculas = async () => {
+  const respuesta = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=773c6baabd1f5b0e1801b4ac0b0cc444');
+  console.log(respuesta)
+
+  const datos = await respuesta.json();
+
+  let peliculas = '';
+  datos.results.forEach(pelicula => {
+       peliculas = peliculas + `  
+        <div class="contenedor" id=${pelicula.id}>
+        <img class= "tarjetaImg" src= "https://image.tmdb.org/t/p/original${pelicula.poster_path}" alt="${pelicula.original_title}">
+         <h2 class= infoTarjeta>${pelicula.original_title}</h2>
+         <h3 class= infoTarjeta>Fecha Estreno: ${pelicula.release_date}</h3>
+      </div>`
+  });
+    document.getElementById('contenedor').innerHTML = peliculas;
+ 
+
+  console.log(datos)
+}
+cargarPeliculas();
 
 
 // Variables de filtros
@@ -15,15 +38,15 @@ function applyFilters() {
   let dataFiltrada = dataset;
 
   if (peliculaGenero !== "Default") {
-    dataFiltrada = filterData(dataFiltrada, "genres", peliculaGenero);
+    dataFiltrada = filterData(dataFiltrada, "genres_ids", peliculaGenero);
   }
 
   if (peliculaAño !== "Default") {
     dataFiltrada = sortData(dataFiltrada, "release_date", peliculaAño);
   }
 
-  const result = renderItems(dataFiltrada);
-  document.getElementById("cartelera").innerHTML = result;
+  const result = cargarPeliculas(dataFiltrada);
+  document.getElementById("contenedor").innerHTML = result;
 
   // Reasigna eventos de clic a las nuevas tarjetas
   assignClickEventsToCards();
@@ -48,7 +71,7 @@ resetButton.addEventListener("click", function () {
   peliculaAño = "Default";
   filtroGeneros.value = "Default";
   filtroOrden.value = "Default";
-  document.querySelector("#cartelera").innerHTML = tarjeta;
+  document.querySelector("#contenedor").innerHTML =applyFilters();
 
   // Reasigna eventos de clic a las nuevas tarjetas
   assignClickEventsToCards();
