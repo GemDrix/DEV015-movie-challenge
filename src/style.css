@@ -95,12 +95,13 @@ label{
 }
  /*MODAL*/
 
-
  .dialog{
   width: 550px;
   height: 850px;
   margin: auto;
-  background-color:#6B2F93;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgb(158, 100, 125) 0%, rgba(122,8,133,1) 98%);
+  border-radius: 10px;
  }
 .modalImg{
  width: 350px;
@@ -116,7 +117,8 @@ label{
   width: 16px;
   font-weight:bold;
   font-size: 24px;
-  text-align: center;
+  text-align: center;background-color: #000000;
+  color: #f9f9f9;
 }
 .tituloModal{
   color:#f9f9f9;

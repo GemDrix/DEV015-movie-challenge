@@ -1,14 +1,21 @@
+
+
+
+
+
+
+
 //Creacion de divs con los datos a mostrar.
-export const renderItems = (dataset) => {
-  const tarjeta = dataset.map(pelicula => `
-      <div class="contenedor" id=${pelicula.id}>
-        <img class= tarjetaImg src= "https://image.tmdb.org/t/p/original${pelicula.poster_path}" alt="${pelicula.original_title}">
-         <h2 class= infoTarjeta>${pelicula.original_title}</h2>
-         <h3 class= infoTarjeta>Fecha Estreno: ${pelicula.release_date}</h3>
-      </div>
-    `).join('');
-  return tarjeta;
-};
+// export const renderItems = (dataset) => {
+//   const tarjeta = dataset.map(pelicula => `
+//       <div class="" id=${pelicula.id}>
+//         <img class= "tarjetaImg" src= "https://image.tmdb.org/t/p/original${pelicula.poster_path}" alt="${pelicula.original_title}">
+//          <h2 class= infoTarjeta>${pelicula.original_title}</h2>
+//          <h3 class= infoTarjeta>Fecha Estreno: ${pelicula.release_date}</h3>
+//       </div>
+//     `).join('');
+//   return tarjeta;
+// };
 
 
 export const filterData = (dataset, filterBy, value) => {                           //Exporta la funcion para filtrar por genero
@@ -28,3 +35,7 @@ export const sortData = (data, sortBy, sortOrder) => {
   };
   return data.slice().sort(comparator); // Ordenar usando el comparador
 };
+
+
+
+
