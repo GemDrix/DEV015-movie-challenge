@@ -69,7 +69,7 @@ function assignClickEventsToCards() {
         modal.innerHTML = infoPelicula;
         modal.showModal(); // Muestra el modal
 
-       
+      
         const cerrarBtn = document.getElementById('cerrarModal');
         if (cerrarBtn) {
           cerrarBtn.addEventListener('click', () => {
